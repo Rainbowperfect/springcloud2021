@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.person.mapper.PaymentMapper">
+
+    <!-- 根据id获取用户信息 -->
+    <!--
+        parameterType：定义输入到sql中的映射类型，#{id}表示使用preparedStatement设置占位符号并将输入变量id传到sql。
+        resultType：定义输出结果映射类型。
+    -->
+    <select id="getPaymentById" parameterType="java.lang.Long" resultType="org.person.pojo.Payment"
+            resultMap="BaseResultMap">
+        SELECT *
+        FROM payment
+        WHERE id = #{id}
+    </select>
+
+    <insert id="create" parameterType="org.person.pojo.Payment" useGeneratedKeys="true" keyProperty="id">
+        insert  into payment (id,serial)  values (#{id},#{serial})
+    </insert>
+
+    <resultMap id="BaseResultMap" type="org.person.pojo.Payment">
+        <id column="id" property="id" />
+        <id column="serial" property="serial" />
+    </resultMap>
+</mapper>
