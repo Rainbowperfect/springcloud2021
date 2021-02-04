@@ -2,6 +2,8 @@ server:
   port: 8001
 
 spring:
+  application:
+    name: provider8001
   datasource:
     url: jdbc:mysql://localhost:3306/mircroservicereview?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&serverTimezone=UTC
     username: root
@@ -16,6 +18,8 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
+    service-url:
+      defaultZone: http://localhost:7001/eureka
 
   # 配置Swagger相关信息
 instance:
