@@ -172,7 +172,7 @@
     </appender>
 
     <!--控制框架输出日志-->
-    <logger name="org.slf4j" level="INFO"/>
+    <logger name="org.slf4j" level="INFO"/>l
     <logger name="springfox" level="INFO"/>
     <logger name="io.swagger" level="INFO"/>
     <logger name="org.springframework" level="INFO"/>
