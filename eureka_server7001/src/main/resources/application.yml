@@ -1,13 +1,38 @@
-server:
-  port: 7001
+#server:
+#  port: 7001
 
-eureka:
-  instance:
-    hostname: localhost
-  client:
-  # false 表示不向自己注册自己
-    register-with-eureka: false
-  # false 表示自己向自己端就是注册中心
-    fetch-registry: false
-    service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#  # false 表示不向自己注册自己
+#    register-with-eureka: false
+#  # false 表示自己向自己端就是注册中心
+#    fetch-registry: false
+#    service-url:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+
+
+spring:
+  profiles:
+    active: dev # 表示开发环境
+    #active: test # 表示测试环境
+    #active: info
+  application:
+    name: consul-provider-payment
+  ####consul注册中心地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置Nacos地址
+#    consul:
+#      host: localhost
+#      port: 8500
+#      discovery:
+#        #hostname: 127.0.0.1
+#        service-name: ${spring.application.name}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
